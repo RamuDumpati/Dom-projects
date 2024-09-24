@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<style>
+    /* dynamic rating with JS */
+    .star-icon {
+        padding: 20px;
+        line-height: 2rem;
+        background-color: rgba(231, 18, 132, 0.822);
+        text-align: center;
+        justify-content: center;
+        border-radius: 40px;
+    }
+    .bi {
+        margin: 10px;
+        font-size: 30px;
+        cursor: pointer;
+    }
+    .selected {
+        color: gold;
+    }
+    #rating-text {
+        text-align: center;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    .heading1{
+        color: #fff;
+      font-size: 25px;
+
+    }
+    .ratingheading{
+        color: #fff;
+        font-size: 25px; 
+    }
+
+
+     /* ----------- */
+
+
+       /* Bmi Calculator */
+       body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #dc139c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            box-shadow: #215888;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .result span {
+            font-weight: bold;
+        }
+
+
+         /* Toggle button */
+         body {
+            transition: background-color 0.5s ease;
+        }
+
+        #btn {
+            padding: 15px;
+            height: 100px;
+            width: 300px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            background-color: rgb(228, 13, 135);
+            color: white;
+            border: none;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #btn:hover {
+            background-color: rgb(242, 31, 193);
+            transform: scale(1.05); 
+        }
+
+        .dark-theme {
+            background-color: black;
+            color: white;
+        }
+
+        .dark-theme #btn {
+            background-color: rgb(17, 160, 226);
+            color: white;
+        }
+
+        h3 {
+            font-family: Arial, sans-serif;
+        }
+
+        .togglebody {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+          
+        }
+
+        .toggle-outer{
+            border: 1px solid rgb(221, 1, 181);   
+        }
+        /* ------------------------ */
+
+        
+
+</style>
+
+   <!-- dynamic rating with JS -->
+    <div class="star-icon" id="rating">
+        <h3 class="heading1">Dynamic Rating with JS</h3>
+        <i class="bi bi-star-fill star"></i> 
+        <i class="bi bi-star-fill star"></i>
+        <i class="bi bi-star-fill star"></i>
+        <i class="bi bi-star-fill star"></i>
+        <i class="bi bi-star-fill star"></i>
+        <p style="text-align: center; " class="ratingheading" >Rating Score :<span id="rating-text">0</span></p>
+    </div> <br><br><br>
+    <!-- ------------------------------ -->
+
+
+     <!-- BMI CALCULATOR USING JS -->
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" placeholder="Enter your weight">
+
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" placeholder="Enter your height">
+
+        <button onclick="calculateBMI()">Calculate BMI</button>
+
+        <div class="result" id="bmiResult"></div>
+    </div> <br><br><br>
+    <!-- ----------------------------------------- -->
+
+    <!-- toggle button  -->
+     <div class="toggle-outer">
+    <div class="togglebody">
+        <button id="btn">Toggle On</button>
+    </div>
+</div> 
+    <!-- ------------------ -->
+
+
+</body>
+
+<script>
+    //    <!-- dynamic rating with JS -->
+    const stars = document.querySelectorAll('.star');
+    const ratingText = document.getElementById('rating-text');
+
+    stars.forEach((star, index) => {
+        star.addEventListener('click', function() {
+            // Toggle color up to the clicked star
+            stars.forEach((s, i) => {
+                if (i <= index) {
+                    s.classList.add('selected'); // Add green color to selected stars
+                } else {
+                    s.classList.remove('selected'); // Remove green color from unselected stars
+                }
+            });
+
+            // Update rating text based on the number of selected stars
+            ratingText.textContent=index + 1;
+        });
+    }); 
+    // =========================================================================//
+
+
+    // <!-- BMI CALCULATOR USING JS -->
+    function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100; 
+
+            if (isNaN(weight) || isNaN(height)) {
+                document.getElementById('bmiResult').textContent = "Please enter valid numbers.";
+                return;
+            }
+
+            const bmi = (weight / (height * height)).toFixed(2);
+
+            document.getElementById('bmiResult').innerHTML =` Your BMI is ${bmi}`;
+        }
+        // ------------------------------------------------------------------------//
+    
+
+          // toggle button
+          const button = document.getElementById('btn'); 
+        const bodyElement = document.querySelector('.toggle-outer');//we can take body also for all size
+       
+        button.addEventListener('click', function () {
+            bodyElement.classList.toggle('dark-theme');
+
+            if (bodyElement.classList.contains('dark-theme')) {
+                button.textContent = 'Toggle Off';
+            } else {
+                button.textContent = 'Toggle On';
+            }
+        });
+        // ----------------------------------------------//
+
+        
+
+</script>
+
+
+
+</html>

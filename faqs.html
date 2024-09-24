@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    /* faqs  */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f0f2f5;
+        color: #333;
+        line-height: 1.6;
+    }
+    section {
+        width: 90%;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #333;
+    }
+    .faq {
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        transition: box-shadow 0.3s ease;
+    }
+    .faq:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #007bff;
+        color: #fff;
+        padding: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .question:hover {
+        background: #0056b3;
+    }
+    .question h3 {
+        font-size: 1.6rem;
+    }
+    .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        background: #f8f9fa;
+        padding: 0 15px;
+    }
+    .answer p {
+        padding: 15px 0;
+        font-size: 1.2rem;
+    }
+    .faq.active .answer {
+        max-height: 200px;
+    }
+    .faq.active .fa-solid {
+        transform: rotate(180deg);
+    }
+    .fa-solid {
+        transition: transform 0.3s ease;
+    }
+
+    /* ------------------- */
+</style>
+<body>
+
+    <!-- faqs -->
+    <section>
+        <h2 class="title">FAQ's</h2>
+        
+        <div class="faq">
+            <div class="question">
+                   <h3>What is JavaScript?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>JavaScript is a high-level, interpreted programming language used primarily to create interactive effects within web browsers. It can manipulate HTML and CSS, allowing developers to build dynamic websites</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                   <h3>What is a function in JavaScript?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>A function is a block of code designed to perform a particular task. Functions are reusable and can be called multiple times. They can accept parameters and return values</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                   <h3>What is an Event in JavaScript?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>An event is an action or occurrence that happens in the browser, such as a click, a key press, or a page load. JavaScript can respond to these events using event listeners.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                   <h3>What is a Promise?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p> A promise is an object that represents the eventual completion or failure of an asynchronous operation. Promises are used to handle asynchronous code more elegantly than callbacks.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                   <h3>What is React?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>React is a JavaScript library for building user interfaces. It allows developers to build reusable UI components and manage the state of those components efficiently. React's core idea is to break down the UI into components that manage their own state.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                   <h3>What are Props?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>Props (short for properties) are read-only attributes passed from a parent component to a child component. They allow you to pass data and event handlers down the component tree.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                   <h3>What are React Hooks?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>React Hooks are functions that let you use state and other React features in functional components. Hooks were introduced in React 16.8 and provide a way to use state (useState), side effects (useEffect), context (useContext), and more in functional components.</p>
+            </div>
+        </div>
+
+    </section>
+    <!-- faqs----------------------- -->
+</body>
+<script>
+    // faqs
+    const faqs = document.querySelectorAll('.faq');
+
+    faqs.forEach(faq => {
+        faq.addEventListener('click', () => {
+            faq.classList.toggle('active');
+        });
+    });
+    // -----------------------------------------------------//
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background: #1c1c1c;
+        color: #fff;
+
+    }
+    section{
+        min-height: 100vh;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title{
+        font-size: 3rem;
+        margin: 2rem 0rem;
+    }
+
+    .faq{
+        max-width: 700px;
+        margin-top: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #fff;
+        cursor: pointer;
+
+    }
+    .question{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: rgb(19, 19, 167); */
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .question h3{
+        font-size: 1.8rem;
+    }
+    .answer{
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1.4s ease;
+    }
+    .answer p{
+        padding-top: 1rem;
+        line-height: 1.6;
+        font-size: 1.4rem;
+    }
+    .faq.active .answer{
+        max-height: 300px;
+        animation: fade 1s ease-in-out;
+    }
+
+
+    .faq.active .fa-solid {
+        transform: rotate(180deg);
+    }
+
+    .fa-solid {
+        transition: transform 0.5s ease-in;
+    }
+
+
+
+</style>
+<body>
+    <section>
+        <h2 class="title">FAQ's</h2>
+        
+        <div class="faq">
+            <div class="question">
+                   <h3>What is Javascript ?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste ex animi porro?</p>
+            </div>
+        </div>
+
+            
+        <div class="faq">
+            <div class="question">
+                   <h3>What is Javascript ?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste ex animi porro?</p>
+            </div>
+        </div>
+
+            
+        <div class="faq">
+            <div class="question">
+                   <h3>What is Javascript ?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste ex animi porro?</p>
+            </div>
+        </div>
+
+
+            
+        <div class="faq">
+            <div class="question">
+                   <h3>What is Javascript ?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste ex animi porro?</p>
+            </div>
+        </div>
+
+            
+        <div class="faq">
+            <div class="question">
+                   <h3>What is Javascript ?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste ex animi porro?</p>
+            </div>
+        </div>
+
+            
+        <div class="faq">
+            <div class="question">
+                   <h3>What is Javascript ?</h3>
+                   <i class="fa-solid fa-angle-down"></i>
+            </div>
+            <div class="answer">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste ex animi porro?</p>
+            </div>
+        </div>
+
+
+
+
+
+
+    </section>
+</body>
+<script>
+         const faqs= document.querySelectorAll('.faq');
+
+         faqs.forEach(faq=>{
+            faq.addEventListener('click',()=>{
+                faq.classList.toggle('active');
+            })
+         })
+</script>
+</html> -->
